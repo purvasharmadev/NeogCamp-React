@@ -1,12 +1,14 @@
 import React from "react";
 import "./styles.css";
 
-var text = "inside outtt";
-var color = "red";
+var text = "Welcome";
+var userName = "NeoGrammer";
 export default function App() {
   return (
     <div className="App">
-      <h1>{text}</h1>
+      <h1>
+        {text} {userName}
+      </h1>
     </div>
   );
 }
