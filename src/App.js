@@ -1,24 +1,33 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-var text = "Welcome";
-var userName = "NeoGrammer";
-// var likeCounter = 0;
+const emojiDictionary = {
+  "😊": "Smile",
+  "😔": "Sad",
+  "😕": "Confused",
+  "😍": "In love",
+  "😒": "unamused face",
+  "😭": "Crying"
+};
 
 export default function App() {
-  var [userInput, setUserInput] = useState("");
-  function inputChangeHandler(event) {
+  const [meaning, setMeaning] = useState("");
+  function emojiInterpret(event) {
     // console.log(event.target.value);
-    setUserInput(event.target.value);
+    var userInput = event.target.value;
+    var meaning = emojiDictionary[userInput];
+    // console.log(meaning);
+    if (meaning === undefined) {
+      meaning = "we don't have this is our database!";
+    }
+    setMeaning(meaning);
   }
 
   return (
     <div className="App">
-      <h1>
-        {text} {userName}
-      </h1>
-      <input onChange={inputChangeHandler}></input>
-      <h3>You typed - {userInput} </h3>
+      <h1>Inside outt</h1>
+      <input onChange={emojiInterpret} />
+      <h2> {meaning} </h2>
     </div>
   );
 }
