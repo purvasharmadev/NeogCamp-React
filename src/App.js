@@ -6,20 +6,19 @@ var userName = "NeoGrammer";
 // var likeCounter = 0;
 
 export default function App() {
-  const [likeCounter, setLikeCounter] = useState(0);
-
-  function likeHandler() {
-    // console.log("clicked!" + likeCounter);
-    var NewlikeCounter = likeCounter + 1;
-    setLikeCounter(NewlikeCounter);
+  var [userInput, setUserInput] = useState("");
+  function inputChangeHandler(event) {
+    // console.log(event.target.value);
+    setUserInput(event.target.value);
   }
-  console.log(likeCounter);
+
   return (
     <div className="App">
       <h1>
         {text} {userName}
       </h1>
-      <button onClick={likeHandler}>Like</button> {likeCounter}
+      <input onChange={inputChangeHandler}></input>
+      <h3>You typed - {userInput} </h3>
     </div>
   );
 }
